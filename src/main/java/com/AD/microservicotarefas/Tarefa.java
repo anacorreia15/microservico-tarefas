@@ -24,7 +24,9 @@ public class Tarefa {
     private String estado;
     private String nomeImagem;
     private String hash;
+
     @Embedded
+    @AttributeOverride(name = "predictions", column = @Column(length = 5000))
     private VisionInferenceResultDTO visionInferenceResultDTO; //informacoes sobre a detecao
 
     private LocalDateTime dataInicio;

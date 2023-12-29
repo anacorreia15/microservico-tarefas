@@ -21,6 +21,7 @@ public class Tarefa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String username;
     private String estado;
     private String nomeImagem;
     private String hash;
@@ -32,10 +33,11 @@ public class Tarefa {
     private LocalDateTime dataInicio;
     private LocalDateTime dataFim;
 
-    public Tarefa(String estado, String nomeImagem, LocalDateTime dataInicio, String hash) {
+    public Tarefa(String estado, String nomeImagem, LocalDateTime dataInicio, String hash, String username) {
         this.estado = estado;
         this.nomeImagem = nomeImagem;
         this.dataInicio = dataInicio;
         this.hash = hash;
+        this.username = username;
     }
 }

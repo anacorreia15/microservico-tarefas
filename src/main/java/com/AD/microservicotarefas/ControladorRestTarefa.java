@@ -1,9 +1,7 @@
 package com.AD.microservicotarefas;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -17,7 +15,7 @@ public class ControladorRestTarefa {
         return repositorioTarefas.save(tarefa);
     }
 
-    @PostMapping("/updatetarefa")
+    @PutMapping("/updatetarefa")
     public Tarefa updateTarefa(@RequestBody Tarefa tarefa){
         return repositorioTarefas.save(tarefa);
     }
@@ -25,5 +23,20 @@ public class ControladorRestTarefa {
     @PostMapping("/findtarefa")
     public Optional<Tarefa> findTarefa(@RequestBody Integer id){
         return repositorioTarefas.findById(id);
+    }
+
+    @PostMapping("/findtarefahashusername")
+    public Optional<Tarefa> findTarefaHashUsername(@RequestBody String hash, @RequestParam String username){
+        return repositorioTarefas.findByHashAndUsername(hash, username);
+    }
+
+    @PostMapping("/findtarefahash")
+    public Optional<Tarefa> findTarefaHash(@RequestBody String hash){
+        return repositorioTarefas.findByHash(hash);
+    }
+
+    @PostMapping("/counttarefahash")
+    public Integer countTarefaHash(@RequestBody String hash){
+        return repositorioTarefas.countTarefaByHash(hash);
     }
 }

@@ -3,6 +3,7 @@ package com.AD.microservicotarefas;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @RestController
@@ -41,7 +42,7 @@ public class ControladorRestTarefa {
     }
 
     @PostMapping("/listartarefas")
-    public Tarefa listarTarefas(@RequestBody String username){return repositorioTarefas.findTarefasByUsername(username);}
+    public List<Tarefa> listarTarefas(@RequestBody String username){return repositorioTarefas.findTarefasByUsername(username);}
 
     @GetMapping("/resultados/{id}")
     public Optional<Tarefa> visualizarResultados(@PathVariable Integer id){return repositorioTarefas.findById(id);}

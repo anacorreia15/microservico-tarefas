@@ -39,4 +39,10 @@ public class ControladorRestTarefa {
     public Integer countTarefaHash(@RequestBody String hash){
         return repositorioTarefas.countTarefaByHash(hash);
     }
+
+    @PostMapping("/listartarefas")
+    public Tarefa listarTarefas(@RequestBody String username){return repositorioTarefas.findTarefasByUsername(username);}
+
+    @GetMapping("/resultados/{id}")
+    public Optional<Tarefa> visualizarResultados(@PathVariable Integer id){return repositorioTarefas.findById(id);}
 }

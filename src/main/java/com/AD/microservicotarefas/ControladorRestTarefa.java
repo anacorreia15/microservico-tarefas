@@ -46,4 +46,7 @@ public class ControladorRestTarefa {
 
     @GetMapping("/resultados/{id}")
     public Optional<Tarefa> visualizarResultados(@PathVariable Integer id){return repositorioTarefas.findById(id);}
+
+    @GetMapping("/admin/listartarefas")
+    public List<Tarefa> listarTodasTarefas(){return repositorioTarefas.findAllBy();}
 }

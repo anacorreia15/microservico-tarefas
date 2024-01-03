@@ -18,4 +18,6 @@ public interface RepositorioTarefas extends JpaRepository<Tarefa, Integer> {
 
     public List<Tarefa> findTarefasByUsername(String username);
 
+    public List<Tarefa> findAllBy();
+
 }
